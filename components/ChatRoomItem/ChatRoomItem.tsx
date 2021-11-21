@@ -20,7 +20,7 @@ export default function ChatRoomItem({chatRoom}) {
         .map((chatRoomUser) => chatRoomUser.user);
 
       // setUsers(fetchedUsers);
-      console.log(fetchedUsers);
+      
       const authUser = await Auth.currentAuthenticatedUser();
       setUser(
         fetchedUsers

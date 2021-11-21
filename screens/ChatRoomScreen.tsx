@@ -90,7 +90,7 @@ export default function ChatRoomScreen() {
   
 
     console.warn("Displaying" ,route.params?.id)
-    navigation.setOptions({title:"Elon Musk"})
+  
     if(!chatRoom){
       return<ActivityIndicator/>
     }

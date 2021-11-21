@@ -2,14 +2,15 @@ import { useNavigation } from '@react-navigation/native';
 import  React ,{ useState, useEffect } from 'react';
 import {Image, Text,Pressable ,StyleSheet,View, ActivityIndicator} from 'react-native';
 import { Auth, DataStore } from "aws-amplify";
-import { ChatRoomUser,User } from '../../src/models';
+import { ChatRoomUser,User,Message } from '../../src/models';
 
 
 import styles from './styles';
 
 export default function ChatRoomItem({chatRoom}) {
-  const [users, setUsers] = useState<User[]>([]); // the display user
+  // const [users, setUsers] = useState<User[]>([]); // the display user
   const [user, setUser] = useState<User|null>(null); // the display user
+  const [lastMessage, setLastMessage] = useState<Message|undefined>(); // the display user
   
   const navigation = useNavigation();
   useEffect(() => {
@@ -21,7 +22,7 @@ export default function ChatRoomItem({chatRoom}) {
       // setUsers(fetchedUsers);
       console.log(fetchedUsers);
       const authUser = await Auth.currentAuthenticatedUser();
-      setUsers(
+      setUser(
         fetchedUsers
       );
       setUser(
@@ -31,6 +32,16 @@ export default function ChatRoomItem({chatRoom}) {
     };
     fetchUsers();
   }, []);
+
+  useEffect(() => {
+    if (!chatRoom.chatRoomLastMessageId) {
+      return;
+    }
+    DataStore.query(Message, chatRoom.chatRoomLastMessageId).then(
+      setLastMessage
+    );
+  }, []);
+
   const onPress = () =>{
 
     navigation.navigate("ChatRoom",{id:chatRoom.id});
@@ -55,9 +66,9 @@ export default function ChatRoomItem({chatRoom}) {
     <View style={styles.rightContainer}>
       <View style = {styles.row}>
         <Text style = {styles.name}>{user.name} </Text>
-        <Text style = {styles.text}>{chatRoom.lastMessage?.createdAt}</Text>
+        <Text style = {styles.text}>{lastMessage?.createdAt}</Text>
       </View>
-      <Text  numberOfLines={1} style = {styles.text}>{chatRoom.lastMessage?.content}</Text>
+      <Text  numberOfLines={1} style = {styles.text}>{lastMessage?.content}</Text>
     </View>
 
   </Pressable>

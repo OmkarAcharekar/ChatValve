@@ -3,8 +3,8 @@ import {StyleSheet,View,FlatList} from 'react-native';
 import UserItem from '../components/UserItem';
 
 // import Users from '../assets/dummy-data/Users';
-
 import { Auth, DataStore } from "aws-amplify";
+
 import { ChatRoom, User, ChatRoomUser } from "../src/models";
 export default function UsersScreen() {
   const [users, setUsers] = useState<User[]>([]);

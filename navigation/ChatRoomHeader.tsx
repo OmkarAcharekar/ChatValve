@@ -1,19 +1,29 @@
 
 import React, { useEffect, useState } from "react";
-import {
-  View,
-  Image,
-  Text,
-  useWindowDimensions,
-  Pressable,
-} from "react-native";
+import { View, Image, Text, useWindowDimensions,Pressable } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import { Auth, DataStore } from "aws-amplify";
-import { ChatRoom, ChatRoomUser, User } from "../src/models";
+import { ChatRoomUser, User } from "../src/models";
+import moment from "moment";
 
 
 
 const ChatRoomHeader = ({id,children}) => {
+
+  const getLastOnlineText = () => {
+    if (!user?.lastOnlineAt) {
+      return null;
+    }
+
+    // if lastOnlineAt is less than 5 minutes ago, show him as ONLINE
+    const lastOnlineDiffMS = moment().diff(moment(user.lastOnlineAt));
+    if (lastOnlineDiffMS < 5 * 60 * 1000) {
+      // less than 5 minutes
+      return "online";
+    } else {
+      return `Last seen online ${moment(user.lastOnlineAt).fromNow()}`;
+    }
+  };
    
     const{width} = useWindowDimensions();
 
@@ -55,17 +65,11 @@ const ChatRoomHeader = ({id,children}) => {
           }}
           style={{ width: 30, height: 30, borderRadius: 30 }}
         />
-     <Text
-          style={{
-            flex: 1,
-           
-            marginLeft: 10,
-            fontSize:20,
-            fontWeight: "bold",
-          }}
-        >
-          {user?.name}
-        </Text>
+     <View style={{ flex: 1, marginLeft: 10 }}>
+        <Text style={{ fontWeight: "bold" }}>{user?.name}</Text>
+        <Text>{getLastOnlineText()}</Text>
+      </View>
+
         <Pressable onPress={() => navigation.navigate("Settings")}>
           <Feather
             name="camera"

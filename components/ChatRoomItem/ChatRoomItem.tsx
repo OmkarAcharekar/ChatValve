@@ -1,18 +1,19 @@
-import { useNavigation } from '@react-navigation/native';
-import  React ,{ useState, useEffect } from 'react';
-import {Image, Text,Pressable ,StyleSheet,View, ActivityIndicator} from 'react-native';
-import { Auth, DataStore } from "aws-amplify";
-import { ChatRoomUser,User,Message } from '../../src/models';
+import React, { useState, useEffect } from "react";
+import { Text, Image, View, Pressable, ActivityIndicator } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { DataStore } from "@aws-amplify/datastore";
+import { ChatRoomUser, User, Message } from "../../src/models";
+import styles from "./styles";
+import Auth from "@aws-amplify/auth";
+import moment from "moment";
 
+export default function ChatRoomItem({ chatRoom }) {
+  // const [users, setUsers] = useState<User[]>([]); // all users in this chatroom
+  const [user, setUser] = useState<User | null>(null); // the display user
+  const [lastMessage, setLastMessage] = useState<Message | undefined>();
 
-import styles from './styles';
-
-export default function ChatRoomItem({chatRoom}) {
-  // const [users, setUsers] = useState<User[]>([]); // the display user
-  const [user, setUser] = useState<User|null>(null); // the display user
-  const [lastMessage, setLastMessage] = useState<Message|undefined>(); // the display user
-  
   const navigation = useNavigation();
+
   useEffect(() => {
     const fetchUsers = async () => {
       const fetchedUsers = (await DataStore.query(ChatRoomUser))
@@ -20,15 +21,11 @@ export default function ChatRoomItem({chatRoom}) {
         .map((chatRoomUser) => chatRoomUser.user);
 
       // setUsers(fetchedUsers);
-      
+
       const authUser = await Auth.currentAuthenticatedUser();
-      setUser(
-        fetchedUsers
-      );
       setUser(
         fetchedUsers.find((user) => user.id !== authUser.attributes.sub) || null
       );
-      // setIsLoading(false);
     };
     fetchUsers();
   }, []);
@@ -42,40 +39,35 @@ export default function ChatRoomItem({chatRoom}) {
     );
   }, []);
 
-  const onPress = () =>{
+  const onPress = () => {
+    navigation.navigate("ChatRoom", { id: chatRoom.id });
+  };
 
-    navigation.navigate("ChatRoom",{id:chatRoom.id});
-   
+  if (!user) {
+    return <ActivityIndicator />;
+  }
 
-  }
-  if(!user){
-    
-    return <ActivityIndicator/>
-  }
-  
+  const time = moment(lastMessage?.createdAt).from(moment());
+
   return (
-    <Pressable onPress={onPress} style = {styles.container}>
-    <Image source ={{
-      uri:user.imageUri}}
+    <Pressable onPress={onPress} style={styles.container}>
+      <Image source={{ uri: user.imageUri }} style={styles.image} />
 
-   style={styles.image}/>
-   {!!chatRoom.newMessages && <View style = {styles.badgeContainer}>
-     <Text style = {styles.badgeText}>{chatRoom.newMessages}</Text>
+      {!!chatRoom.newMessages && (
+        <View style={styles.badgeContainer}>
+          <Text style={styles.badgeText}>{chatRoom.newMessages}</Text>
+        </View>
+      )}
 
-   </View>}
-    <View style={styles.rightContainer}>
-      <View style = {styles.row}>
-        <Text style = {styles.name}>{user.name} </Text>
-        <Text style = {styles.text}>{lastMessage?.createdAt}</Text>
+      <View style={styles.rightContainer}>
+        <View style={styles.row}>
+          <Text style={styles.name}>{user.name}</Text>
+          <Text style={styles.text}>{time}</Text>
+        </View>
+        <Text numberOfLines={1} style={styles.text}>
+          {lastMessage?.content}
+        </Text>
       </View>
-      <Text  numberOfLines={1} style = {styles.text}>{lastMessage?.content}</Text>
-    </View>
-
-  </Pressable>
+    </Pressable>
   );
 }
-
-
-
-
-

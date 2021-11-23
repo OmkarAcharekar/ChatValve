@@ -5,10 +5,16 @@ import { Feather } from "@expo/vector-icons";
 import { Auth, DataStore } from "aws-amplify";
 import { ChatRoomUser, User } from "../src/models";
 import moment from "moment";
+import { useNavigation } from "@react-navigation/native";
 
 
 
 const ChatRoomHeader = ({id,children}) => {
+  const [chatRoom, setChatRoom] = useState<ChatRoom | undefined>(undefined);
+  const [allUsers, setAllUsers] = useState<User[]>([]);
+ 
+  const isGroup = allUsers.length > 2;
+
 
   const getLastOnlineText = () => {
     if (!user?.lastOnlineAt) {
@@ -26,27 +32,41 @@ const ChatRoomHeader = ({id,children}) => {
   };
    
     const{width} = useWindowDimensions();
+    const fetchChatRoom = async () => {
+      DataStore.query(ChatRoom, id).then(setChatRoom);
+    };
+
+    const getUsernames = () => {
+      return allUsers.map((user) => user.name).join(", ");
+    };
+  
+    const openInfo = () => {
+      // redirect to info page
+      navigation.navigate("GroupInfoScreen", { id });
+    };
+    const fetchUsers = async () => {
+      const fetchedUsers = (await DataStore.query(ChatRoomUser))
+        .filter((chatRoomUser) => chatRoomUser.chatroom.id === id)
+        .map((chatRoomUser) => chatRoomUser.user);
+
+       setAllUsers(fetchedUsers);
+      
+      const authUser = await Auth.currentAuthenticatedUser();
+      
+      setUser(
+        fetchedUsers.find((user) => user.id !== authUser.attributes.sub) || null
+      );
+      // setIsLoading(false);
+    };
 
     const [user, setUser] = useState<User | null>(null);
     useEffect(() => {
         if(!id){
             return;
         }
-        const fetchUsers = async () => {
-          const fetchedUsers = (await DataStore.query(ChatRoomUser))
-            .filter((chatRoomUser) => chatRoomUser.chatroom.id === id)
-            .map((chatRoomUser) => chatRoomUser.user);
-    
-          // setUsers(fetchedUsers);
-          
-          const authUser = await Auth.currentAuthenticatedUser();
-          
-          setUser(
-            fetchedUsers.find((user) => user.id !== authUser.attributes.sub) || null
-          );
-          // setIsLoading(false);
-        };
+      
         fetchUsers();
+        fetchChatRoom();
       }, []);
     
     return (
@@ -60,15 +80,19 @@ const ChatRoomHeader = ({id,children}) => {
       }}>
   
   <Image
-          source={{
-            uri: user?.imageUri
-          }}
-          style={{ width: 30, height: 30, borderRadius: 30 }}
-        />
-     <View style={{ flex: 1, marginLeft: 10 }}>
-        <Text style={{ fontWeight: "bold" }}>{user?.name}</Text>
-        <Text>{getLastOnlineText()}</Text>
-      </View>
+        source={{
+          uri: chatRoom?.imageUri || user?.imageUri,
+        }}
+        style={{ width: 30, height: 30, borderRadius: 30 }}
+      />
+     <Pressable onPress={openInfo} style={{ flex: 1, marginLeft: 10 }}>
+        <Text style={{ fontWeight: "bold" }}>
+          {chatRoom?.name || user?.name}
+        </Text>
+        <Text numberOfLines={1}>
+          {isGroup ? getUsernames() : getLastOnlineText()}
+        </Text>
+      </Pressable>
 
         <Pressable onPress={() => navigation.navigate("Settings")}>
           <Feather

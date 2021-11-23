@@ -41,28 +41,37 @@ export default function UsersScreen() {
 
   const createChatRoom = async(users) => {
 
-    const newChatRoom = await DataStore.save(new ChatRoom({newMessages : 0}));
-
-    const authUser  = await Auth.currentAuthenticatedUser();
-    const dbUser = await DataStore.query(User,authUser.attributes.sub);
-    if(dbUser){
-      await addUserToChatRoom(dbUser,newChatRoom)
-      
+    const authUser = await Auth.currentAuthenticatedUser();
+    const dbUser = await DataStore.query(User, authUser.attributes.sub);
+    if (!dbUser) {
+      Alert.alert("There was an error creating the group");
+      return;
     }
-    
-   
-   await Promise.all(users.map((user) => addUserToChatRoom(user,newChatRoom)
-   
-  ));
-   
+    // Create a chat room
+    const newChatRoomData = {
+      newMessages: 0,
+      Admin: dbUser,
+    };
+    if (users.length > 1) {
+      newChatRoomData.name = "New group 2";
+      newChatRoomData.imageUri =
+        "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/group.jpeg";
+    }
+    const newChatRoom = await DataStore.save(new ChatRoom(newChatRoomData));
 
-    navigation.navigate('ChatRoom',{ id: newChatRoom.id});
+    if (dbUser) {
+      await addUserToChatRoom(dbUser, newChatRoom);
+    }
 
+    // connect users user with the chat room
+    await Promise.all(
+      users.map((user) => addUserToChatRoom(user, newChatRoom))
+    );
 
+    navigation.navigate("ChatRoom", { id: newChatRoom.id });
+  };
 
-
-
-  }
+  
 
   const saveGroup = async () => {
     await createChatRoom(selectedUsers);

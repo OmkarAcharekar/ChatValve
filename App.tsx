@@ -11,6 +11,7 @@ import useCachedResources from "./hooks/useCachedResources";
 import useColorScheme from "./hooks/useColorScheme";
 import Navigation from "./navigation";
 import moment from "moment";
+import { ActionSheetProvider } from "@expo/react-native-action-sheet";
 
 Amplify.configure(config);
 
@@ -92,7 +93,9 @@ function App() {
   } else {
     return (
       <SafeAreaProvider>
+        <ActionSheetProvider>
         <Navigation colorScheme={colorScheme} />
+        </ActionSheetProvider>
         <StatusBar />
       </SafeAreaProvider>
     );

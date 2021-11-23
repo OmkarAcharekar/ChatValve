@@ -5,6 +5,7 @@ import {
   StyleSheet,
   ActivityIndicator,
   Pressable,
+  Alert,
 } from "react-native";
 import { DataStore } from "@aws-amplify/datastore";
 import { User } from "../../src/models";
@@ -15,13 +16,16 @@ import { Ionicons } from "@expo/vector-icons";
 import AudioPlayer from "../AudioPlayer";
 import { Message as MessageModel } from "../../src/models";
 import MessageReply from "../MessageReply";
+import { useActionSheet } from "@expo/react-native-action-sheet";
+
 
 const blue = "#3777f0";
 const grey = "lightgrey";
 
 const Message = (props) => {
   const { setAsMessageReply, message: propMessage } = props;
-
+  const { showActionSheetWithOptions } = useActionSheet();
+  const [isDeleted, setIsDeleted] = useState(false);
   const [message, setMessage] = useState<MessageModel>(propMessage);
   const [repliedTo, setRepliedTo] = useState<MessageModel | undefined>(
     undefined
@@ -47,19 +51,23 @@ const Message = (props) => {
       );
     }
   }, [message]);
-
+  
   useEffect(() => {
     const subscription = DataStore.observe(MessageModel, message.id).subscribe(
       (msg) => {
-        if (msg.model === MessageModel && msg.opType === "UPDATE") {
-          setMessage((message) => ({ ...message, ...msg.element }));
+        if (msg.model === MessageModel) {
+          if (msg.opType === "UPDATE") {
+            setMessage((message) => ({ ...message, ...msg.element }));
+          } else if (msg.opType === "DELETE") {
+            setIsDeleted(true);
+          }
         }
       }
     );
 
     return () => subscription.unsubscribe();
   }, []);
-
+  
   useEffect(() => {
     setAsRead();
   }, [isMe, message]);
@@ -81,6 +89,53 @@ const Message = (props) => {
     checkIfMe();
   }, [user]);
 
+  const deleteMessage = async () => {
+    await DataStore.delete(message);
+  };
+
+  const confirmDelete = () => {
+    Alert.alert(
+      "Confirm delete",
+      "Are you sure you want to delete the message?",
+      [
+        {
+          text: "Delete",
+          onPress: deleteMessage,
+          style: "destructive",
+        },
+        {
+          text: "Cancel",
+        },
+      ]
+    );
+  };
+
+  const onActionPress = (index) => {
+    if (index === 0) {
+      setAsMessageReply();
+    } else if (index === 1) {
+      if (isMe) {
+        confirmDelete();
+      } else {
+        Alert.alert("Can't perform action", "This is not your message");
+      }
+    }
+  };
+
+  const openActionMenu = () => {
+    const options = ["Reply", "Delete", "Cancel"];
+    const destructiveButtonIndex = 1;
+    const cancelButtonIndex = 2;
+    showActionSheetWithOptions(
+      {
+        options,
+        destructiveButtonIndex,
+        cancelButtonIndex,
+      },
+      onActionPress
+    );
+  };
+
   const setAsRead = async () => {
     if (isMe === false && message.status !== "READ") {
       await DataStore.save(
@@ -97,7 +152,7 @@ const Message = (props) => {
 
   return (
     <Pressable
-      onLongPress={setAsMessageReply}
+      onLongPress={openActionMenu}
       style={[
         styles.container,
         isMe ? styles.rightContainer : styles.leftContainer,
@@ -118,8 +173,8 @@ const Message = (props) => {
         {soundURI && <AudioPlayer soundURI={soundURI} />}
         {!!message.content && (
           <Text style={{ color: isMe ? "black" : "white" }}>
-            {message.content}
-          </Text>
+          {isDeleted ? "message deleted":message.content }
+        </Text>
         )}
 
         {isMe && !!message.status && message.status !== "SENT" && (

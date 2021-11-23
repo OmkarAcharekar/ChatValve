@@ -39,7 +39,8 @@ const ChatRoomHeader = ({id,children}) => {
     const getUsernames = () => {
       return allUsers.map((user) => user.name).join(", ");
     };
-  
+    const navigation = useNavigation();
+
     const openInfo = () => {
       // redirect to info page
       navigation.navigate("GroupInfoScreen", { id });

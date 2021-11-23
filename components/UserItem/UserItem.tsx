@@ -8,6 +8,7 @@ import { User,ChatRoomUser } from '../../src/models';
 
 export default function  UserItem({ user,
   onPress,
+  onLongPress,
  
   isSelected,
   isAdmin = false,}) {
@@ -15,17 +16,18 @@ export default function  UserItem({ user,
   
 
   return (
-    <Pressable onPress={onPress} style = {styles.container}>
+    <Pressable onPress={onPress} onLongPress ={onLongPress} style = {styles.container}>
     <Image source ={{
       uri:user.imageUri}}
 
    style={styles.image}/>
    
     <View style={styles.rightContainer}>
-      <View style = {styles.row}>
-        <Text style = {styles.name}>{user.name} </Text>
       
-      </View>
+        <Text style = {styles.name}>{user.name} </Text>
+        {isAdmin && <Text>admin</Text>}
+      
+     
      
     </View>
     {isSelected !== undefined && (

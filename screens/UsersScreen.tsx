@@ -53,7 +53,7 @@ export default function UsersScreen() {
       Admin: dbUser,
     };
     if (users.length > 1) {
-      newChatRoomData.name = "New group 2";
+      newChatRoomData.name = "New group";
       newChatRoomData.imageUri =
         "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/group.jpeg";
     }

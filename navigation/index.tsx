@@ -22,6 +22,7 @@ import ChatRoomScreen from '../screens/ChatRoomScreen';
 import HomeScreen from '../screens/HomeScreen';
 import UsersScreen from '../screens/UsersScreen';
 import ChatRoomHeader from './ChatRoomHeader';
+import GroupInfoScreen from '../screens/GroupInfoScreen';
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
     <NavigationContainer
@@ -47,6 +48,8 @@ function RootNavigator() {
       options = {({route})=>({headerTitle:()=><ChatRoomHeader id = {route.params?.id||null}/>,headerBackTitleVisible:false})}/>
      <Stack.Screen name ="UsersScreen" component={UsersScreen}
       options = {{title:"Users"}}/>
+      <Stack.Screen name="GroupInfoScreen" component={GroupInfoScreen} />
+      
      
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
     

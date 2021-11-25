@@ -15,6 +15,7 @@ import useColorScheme from '../hooks/useColorScheme';
 import ModalScreen from '../screens/ModalScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
 import TabOneScreen from '../screens/HomeScreen';
+import SettingsScreen from "../screens/Settings";
 import TabTwoScreen from '../screens/TabTwoScreen';
 import {RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
@@ -49,6 +50,7 @@ function RootNavigator() {
      <Stack.Screen name ="UsersScreen" component={UsersScreen}
       options = {{title:"Users"}}/>
       <Stack.Screen name="GroupInfoScreen" component={GroupInfoScreen} />
+      <Stack.Screen name="Settings" component={SettingsScreen} />
       
      
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />

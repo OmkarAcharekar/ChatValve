@@ -20,21 +20,21 @@ import {
 import { DataStore } from "@aws-amplify/datastore";
 import { ChatRoom, Message } from "../../src/models";
 import { Auth, Storage } from "aws-amplify";
-import { ChatRoomUser } from "../../src/models";
 import EmojiSelector from "react-native-emoji-selector";
 import * as ImagePicker from "expo-image-picker";
-
+import uuid from 'uuid-random';
 import { Audio, AVPlaybackStatus } from "expo-av";
-import { stat } from "fs";
 import AudioPlayer from "../AudioPlayer";
 import MessageComponent from "../Message";
-import uuid from 'uuid-random';
+import { ChatRoomUser } from "../../src/models";
+import { useNavigation } from "@react-navigation/native";
 import { box } from "tweetnacl";
 import {
   encrypt,
   getMySecretKey,
   stringToUint8Array,
 } from "../../utils/crypto";
+
 const MessageInput = ({ chatRoom, messageReplyTo, removeMessageReplyTo }) => {
   const [message, setMessage] = useState("");
   const [isEmojiPickerOpen, setIsEmojiPickerOpen] = useState(false);
@@ -42,6 +42,8 @@ const MessageInput = ({ chatRoom, messageReplyTo, removeMessageReplyTo }) => {
   const [progress, setProgress] = useState(0);
   const [recording, setRecording] = useState<Audio.Recording | null>(null);
   const [soundURI, setSoundURI] = useState<string | null>(null);
+
+  const navigation = useNavigation();
 
   useEffect(() => {
     (async () => {
@@ -61,7 +63,6 @@ const MessageInput = ({ chatRoom, messageReplyTo, removeMessageReplyTo }) => {
     })();
   }, []);
 
-///////////////////////////////////////////////////////
   const sendMessageToUser = async (user, fromUserId) => {
     // send message
     const ourSecretKey = await getMySecretKey();
@@ -102,19 +103,19 @@ const MessageInput = ({ chatRoom, messageReplyTo, removeMessageReplyTo }) => {
   };
 
   const sendMessage = async () => {
-
+    // get all the users of this chatroom
     const authUser = await Auth.currentAuthenticatedUser();
+
     const users = (await DataStore.query(ChatRoomUser))
-    .filter((cru) => cru.chatroom.id === chatRoom.id)
+      .filter((cru) => cru.chatroom.id === chatRoom.id)
       .map((cru) => cru.user);
-      console.log("users", users);
 
-      await Promise.all(
-        users.map((user) => sendMessageToUser(user, authUser.attributes.sub))
-      );
-    
+    console.log("users", users);
 
-    // updateLastMessage(newMessage);
+    // for each user, encrypt the `content` with his public key, and save it as a new message
+    await Promise.all(
+      users.map((user) => sendMessageToUser(user, authUser.attributes.sub))
+    );
 
     resetFields();
   };

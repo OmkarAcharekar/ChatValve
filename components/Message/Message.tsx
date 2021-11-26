@@ -13,10 +13,10 @@ import { Auth, Storage } from "aws-amplify";
 import { S3Image } from "aws-amplify-react-native";
 import { useWindowDimensions } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import { useActionSheet } from "@expo/react-native-action-sheet";
 import AudioPlayer from "../AudioPlayer";
 import { Message as MessageModel } from "../../src/models";
 import MessageReply from "../MessageReply";
-import { useActionSheet } from "@expo/react-native-action-sheet";
 import { box } from "tweetnacl";
 import {
   decrypt,
@@ -29,18 +29,19 @@ const grey = "lightgrey";
 
 const Message = (props) => {
   const { setAsMessageReply, message: propMessage } = props;
-  const { showActionSheetWithOptions } = useActionSheet();
-  const [isDeleted, setIsDeleted] = useState(false);
+
   const [message, setMessage] = useState<MessageModel>(propMessage);
+  const [decryptedContent, setDecryptedContent] = useState("");
   const [repliedTo, setRepliedTo] = useState<MessageModel | undefined>(
     undefined
   );
-  const [decryptedContent, setDecryptedContent] = useState("");
   const [user, setUser] = useState<User | undefined>();
   const [isMe, setIsMe] = useState<boolean | null>(null);
   const [soundURI, setSoundURI] = useState<any>(null);
+  const [isDeleted, setIsDeleted] = useState(false);
 
   const { width } = useWindowDimensions();
+  const { showActionSheetWithOptions } = useActionSheet();
 
   useEffect(() => {
     DataStore.query(User, message.userID).then(setUser);
@@ -57,7 +58,7 @@ const Message = (props) => {
       );
     }
   }, [message]);
-  
+
   useEffect(() => {
     const subscription = DataStore.observe(MessageModel, message.id).subscribe(
       (msg) => {
@@ -73,7 +74,7 @@ const Message = (props) => {
 
     return () => subscription.unsubscribe();
   }, []);
-  
+
   useEffect(() => {
     setAsRead();
   }, [isMe, message]);
@@ -95,11 +96,40 @@ const Message = (props) => {
     checkIfMe();
   }, [user]);
 
+  useEffect(() => {
+    if (!message?.content || !user?.publicKey) {
+      return;
+    }
+
+    const decryptMessage = async () => {
+      const myKey = await getMySecretKey();
+      if (!myKey) {
+        return;
+      }
+      // decrypt message.content
+      const sharedKey = box.before(stringToUint8Array(user.publicKey), myKey);
+      console.log("sharedKey", sharedKey);
+      const decrypted = decrypt(sharedKey, message.content);
+      console.log("decrypted", decrypted);
+      setDecryptedContent(decrypted.message);
+    };
+
+    decryptMessage();
+  }, [message, user]);
+
+  const setAsRead = async () => {
+    if (isMe === false && message.status !== "READ") {
+      await DataStore.save(
+        MessageModel.copyOf(message, (updated) => {
+          updated.status = "READ";
+        })
+      );
+    }
+  };
+
   const deleteMessage = async () => {
     await DataStore.delete(message);
   };
-
-  
 
   const confirmDelete = () => {
     Alert.alert(
@@ -143,36 +173,6 @@ const Message = (props) => {
       onActionPress
     );
   };
-  useEffect(() => {
-    if (!message?.content || !user?.publicKey) {
-      return;
-    }
-  const decryptMessage = async () => {
-    const myKey = await getMySecretKey();
-    if (!myKey) {
-      return;
-    }
-    // decrypt message.content
-    const sharedKey = box.before(stringToUint8Array(user.publicKey), myKey);
-    console.log("sharedKey", sharedKey);
-    const decrypted = decrypt(sharedKey, message.content);
-    console.log("decrypted", decrypted);
-    setDecryptedContent(decrypted.message);
-  };
-
-  decryptMessage();
-}, [message, user]);
-
-
-  const setAsRead = async () => {
-    if (isMe === false && message.status !== "READ") {
-      await DataStore.save(
-        MessageModel.copyOf(message, (updated) => {
-          updated.status = "READ";
-        })
-      );
-    }
-  };
 
   if (!user) {
     return <ActivityIndicator />;
@@ -201,8 +201,8 @@ const Message = (props) => {
         {soundURI && <AudioPlayer soundURI={soundURI} />}
         {!!decryptedContent && (
           <Text style={{ color: isMe ? "black" : "white" }}>
-          {isDeleted ? "message deleted":decryptedContent }
-        </Text>
+            {isDeleted ? "message deleted" : decryptedContent}
+          </Text>
         )}
 
         {isMe && !!message.status && message.status !== "SENT" && (

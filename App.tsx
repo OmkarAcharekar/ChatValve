@@ -1,4 +1,3 @@
-
 import { StatusBar } from "expo-status-bar";
 import React, { useEffect, useState } from "react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
@@ -6,17 +5,15 @@ import Amplify, { DataStore, Hub, Auth } from "aws-amplify";
 import { withAuthenticator } from "aws-amplify-react-native";
 import config from "./src/aws-exports";
 import { Message, User } from "./src/models";
+import { ActionSheetProvider } from "@expo/react-native-action-sheet";
 
 import useCachedResources from "./hooks/useCachedResources";
 import useColorScheme from "./hooks/useColorScheme";
 import Navigation from "./navigation";
 import moment from "moment";
-import { secretbox, randomBytes ,setPRNG} from "tweetnacl";
+
 import { box } from "tweetnacl";
 import { generateKeyPair, encrypt, decrypt } from "./utils/crypto";
-
-import { ActionSheetProvider } from "@expo/react-native-action-sheet";
-
 
 Amplify.configure(config);
 
@@ -30,7 +27,6 @@ const encrypted = encrypt(sharedA, obj);
 const sharedB = box.before(pairA.publicKey, pairB.secretKey);
 const decrypted = decrypt(sharedB, encrypted);
 console.log(obj, encrypted, decrypted);
-
 
 function App() {
   const isLoadingComplete = useCachedResources();
@@ -91,7 +87,7 @@ function App() {
       setUser(user);
     }
   };
-  
+
   const updateLastOnline = async () => {
     if (!user) {
       return;
@@ -111,7 +107,7 @@ function App() {
     return (
       <SafeAreaProvider>
         <ActionSheetProvider>
-        <Navigation colorScheme={colorScheme} />
+          <Navigation colorScheme={"light"} />
         </ActionSheetProvider>
         <StatusBar />
       </SafeAreaProvider>

@@ -77,7 +77,7 @@ export default function ChatRoomScreen() {
   if (!chatRoom) {
     return <ActivityIndicator />;
   }
- 
+
   return (
     <SafeAreaView style={styles.page}>
       <FlatList
@@ -86,7 +86,6 @@ export default function ChatRoomScreen() {
           <Message
             message={item}
             setAsMessageReply={() => setMessageReplyTo(item)}
-            
           />
         )}
         inverted

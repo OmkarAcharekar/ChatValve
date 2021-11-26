@@ -1,7 +1,7 @@
 
 <h1 align="center">
   <br>
-  <img src="https://cdn-icons.flaticon.com/png/128/2076/premium/2076538.png?token=exp=1637926728~hmac=78e2877a7c131916d3c4af9802969708" alt="Markdownify" width="200"></a>
+  <img src="https://github.com/OmkarAcharekar/Signal_Clone/blob/master/assets/images/bubble-chat.png" alt="Markdownify" width="200"></a>
   <br style="font-size:300%;">
    ChatValve
   <br>

@@ -6,15 +6,15 @@
    ChatValve
   <br>
 </h1>
----
-<h4 align="center">An  Real Time  End-To-End  Encrypted Messaging  Application</h4>
 
+<h4 align="center">An  Real Time  End-To-End  Encrypted Messaging  Application</h4>
+<p align="center">
 ![React_Native](https://img.shields.io/badge/react%20native-v0.66-orange)
 [![Build Status](https://img.shields.io/badge/build-passing-green)](https://img.shields.io/badge/build-passing-green)
 ![Dependencies](https://img.shields.io/badge/dependencies-up%20to%20date-brightgreen)
 ![Contributions welcome](https://img.shields.io/badge/contributions-welcome-orange.svg)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-
+</p>
 <p align="center">
   <a href="#key-features">Key Features</a> •
   <a href="#how-to-use">How To Use</a> •

@@ -46,7 +46,7 @@
 
 ## How To Use
 
-To clone and run this application, you should have [Git](https://git-scm.com), [React Native & Expo environment set up](https://git-scm.com), [AWS Account and AWS CLI setup](https://git-scm.com),[Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
+To clone and run this application, you should have [Git](https://git-scm.com/downloads), [React Native & Expo environment set up](https://expo.dev/), [AWS Account and AWS CLI setup](https://aws.amazon.com/console/),[Node.js](https://nodejs.org/en/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
 
 ```bash
 # Clone this repository

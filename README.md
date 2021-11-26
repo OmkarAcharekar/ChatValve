@@ -101,5 +101,5 @@ MIT
 
 ---
 
-> [amitmerchant.com](https://www.amitmerchant.com) &nbsp;&middot;&nbsp;
+> [omkaracharekar.com](https://www.amitmerchant.com) &nbsp;&middot;&nbsp;
 > GitHub [OmkarAcharekar](https://github.com/OmkarAcharekar) &nbsp;&middot;&nbsp;

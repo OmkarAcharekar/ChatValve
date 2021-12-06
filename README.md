@@ -72,7 +72,7 @@ $ npm start
 ## Download
 
 You can [download]() the latest installable version of chatValve for android and ios.
-//https://github.com/amitmerchant1990/electron-markdownify/releases/tag/v1.2.0
+
 
 
 ## Credits

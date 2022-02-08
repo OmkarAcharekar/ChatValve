@@ -73,7 +73,7 @@ $ npm start
 
 ## Download
 
-You can [download]() the latest installable version of chatValve for android and ios.
+The latest installable version of chatValve for android and ios coming soon.
 
 
 

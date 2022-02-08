@@ -28,12 +28,7 @@
 
 
 
-
-https://user-images.githubusercontent.com/78009952/152930862-271581ca-7080-4460-bf04-97dd164a4c06.mp4
-
-
-
-
+https://user-images.githubusercontent.com/78009952/152931790-2ffa635d-8815-4d1b-91a2-228620962f84.mp4
 ## Key Features
 
 * Encryption and Security
@@ -92,6 +87,10 @@ This software uses the following :
 - [TypeScript](https://github.com/chjj/marked)
 - [Aws Amplify](http://codemirror.net/)
 - Icons are taken from [here](https://icons.expo.fyi/)
+
+
+
+
 
 
 

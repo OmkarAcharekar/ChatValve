@@ -68,13 +68,22 @@ $ amplify push
 $ npm start
 ```
 
+# How to Contribute 🖋 
+
+* Clone this Repository and run the app - Steps are mentioned above.
+* If you face issues in any step open a new issue in this repository.
+* To fix issues / add new features  follow Developer Guidelines.
+
+# Important Message ✉️
+
+* Still there are things to complete as well as to implement, If you find this app intresting than hit me up; I will be
+glad to work with you.
 
 
 
 ## Download
 
 The latest installable version of chatValve for android and ios coming soon.
-
 
 
 ## Credits
@@ -91,25 +100,24 @@ This software uses the following :
 
 
 
-
-
-
-
-
 ## You may also like...
 
 - [Netflix](https://github.com/amitmerchant1990/pomolectron) - A Netflix clone
 - [Air Sense](https://github.com/amitmerchant1990/correo) - Air Quality Predictor and Weather Application
 
 
+
 ## License
-
 MIT
-
 ---
-
 > [omkaracharekar.com](https://flamboyant-ramanujan-9f5033.netlify.app/) &nbsp;&
 
-
-middot;&nbsp;
 > GitHub [OmkarAcharekar](https://github.com/OmkarAcharekar) &nbsp;&middot;&nbsp;
+
+
+
+
+<p align="center" width="100%">
+   Made with ❤️ in 🇮🇳 By Omkar Acharkar   
+</p>
+

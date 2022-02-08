@@ -29,7 +29,7 @@
 
 
 https://user-images.githubusercontent.com/78009952/152931790-2ffa635d-8815-4d1b-91a2-228620962f84.mp4
-# Key Features
+# Key Features 🔑
 
 * Encryption and Security
   - Messages are encrypted on the sender system or device, and only the intended recipient can decrypt it.
@@ -45,11 +45,11 @@ https://user-images.githubusercontent.com/78009952/152931790-2ffa635d-8815-4d1b-
 * Messages
   - Users can send various type of messages like Audio Message,Text Messages ,Images and can also see user online status.
 
-# Encryption and Description
+# Encryption and Description 📖
 
 ![encrypt](https://user-images.githubusercontent.com/78009952/153011603-bad88f4e-eeeb-47f6-8528-57a6287f8964.jpg)
 
-# How To Use
+# How To Use ⚙
 
 To clone and run this application, you should have [Git](https://git-scm.com/downloads), [React Native & Expo environment set up](https://expo.dev/), [AWS Account](https://aws.amazon.com/console/) and [AWS CLI setup](https://docs.amplify.aws/start/getting-started/installation/q/integration/js/),[Node.js](https://nodejs.org/en/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
 
@@ -90,7 +90,7 @@ glad to work with you.
 
 
 
-# Credits
+# Credits ✽
 
 This software uses the following :
 
@@ -103,7 +103,7 @@ This software uses the following :
 
 
 
-# Download
+# Download 🔜
 
 The latest installable version of ChatValve for Android and IOS coming soon.
 

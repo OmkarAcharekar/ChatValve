@@ -55,7 +55,7 @@ To clone and run this application, you should have [Git](https://git-scm.com/dow
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/OmkarAcharekar/Signal_Clone.git
+$ git clone https://github.com/OmkarAcharekar/ChatValve.git
 
 # Go into the repository
 $ cd ChatValve
@@ -66,7 +66,6 @@ $ npm install
 # Init amplify project and push it to the cloud 
 $ amplify init 
 $ amplify push
-
 
 #Pull the backend into React Native app:
 $ amplify pull --appId APP_ID --envName staging
@@ -86,14 +85,9 @@ $ npm start
 
 # Important Message ✉️
 
-* Still there are things to complete as well as to implement, If you find this app intresting than hit me up; I will be
+* There are many amazing features / ideas  that we can implement, If you find this project interesting than hit me up,  I will be
 glad to work with you.
 
-
-
-# Download
-
-The latest installable version of chatValve for android and ios coming soon.
 
 
 # Credits
@@ -107,6 +101,11 @@ This software uses the following :
 - [Aws Amplify](http://codemirror.net/)
 - Icons are taken from [here](https://icons.expo.fyi/)
 
+
+
+# Download
+
+The latest installable version of ChatValve for Android and IOS coming soon.
 
 
 

@@ -48,7 +48,7 @@ https://user-images.githubusercontent.com/78009952/152931790-2ffa635d-8815-4d1b-
 
 ## How To Use
 
-To clone and run this application, you should have [Git](https://git-scm.com/downloads), [React Native & Expo environment set up](https://expo.dev/), [AWS Account and AWS CLI setup](https://aws.amazon.com/console/),[Node.js](https://nodejs.org/en/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
+To clone and run this application, you should have [Git](https://git-scm.com/downloads), [React Native & Expo environment set up](https://expo.dev/), [AWS Account]((https://aws.amazon.com/console/)) and AWS CLI setup](https://docs.amplify.aws/start/getting-started/installation/q/integration/js/),[Node.js](https://nodejs.org/en/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
 
 ```bash
 # Clone this repository

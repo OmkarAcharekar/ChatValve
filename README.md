@@ -71,8 +71,9 @@ $ npm start
 # How to Contribute 🖋 
 
 * Clone this Repository and run the app - Steps are mentioned above.
-* If you face issues in any step open a new issue in this repository.
-* To fix issues / add new features  follow Developer Guidelines.
+* If you want to contribute open a new issue in this repository.
+* To fix issues / add new features please follow [Developer Guidelines](https://github.com/OmkarAcharekar/ChatValve/blob/master/Contributions.md)
+
 
 # Important Message ✉️
 

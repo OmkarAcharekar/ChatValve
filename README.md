@@ -55,7 +55,7 @@ To clone and run this application, you should have [Git](https://git-scm.com/dow
 $ git clone https://github.com/OmkarAcharekar/Signal_Clone.git
 
 # Go into the repository
-$ cd Signal_Clone
+$ cd ChatValve
 
 # Install dependencies
 $ npm install

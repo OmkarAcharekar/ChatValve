@@ -45,6 +45,9 @@ https://user-images.githubusercontent.com/78009952/152931790-2ffa635d-8815-4d1b-
 * Messages
   - Users can send various type of messages like Audio Message,Text Messages ,Images and can also see user online status.
 
+# Encryption and Description
+
+![encrypt](https://user-images.githubusercontent.com/78009952/153011603-bad88f4e-eeeb-47f6-8528-57a6287f8964.jpg)
 
 # How To Use
 
@@ -127,4 +130,5 @@ MIT
 <p align="center" width="100%">
    Made with ❤️ in 🇮🇳 By Omkar Acharkar   
 </p>
+
 

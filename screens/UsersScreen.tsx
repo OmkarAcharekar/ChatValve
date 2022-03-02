@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {StyleSheet,View,FlatList,Text,Pressable,SafeAreaView} from 'react-native';
 import UserItem from '../components/UserItem';
-
 // import Users from '../assets/dummy-data/Users';
 import { Auth, DataStore } from "aws-amplify";
 import NewGroupButton from '../components/NewGroupButton';
@@ -99,16 +98,11 @@ export default function UsersScreen() {
       <NewGroupButton onPress={() => setIsNewGroup(!isNewGroup)} />
     )}
      />
-
-
         {isNewGroup && <Pressable style={styles.button} onPress={saveGroup}>
           <Text style={styles.buttonText}>
             Save group ({selectedUsers.length})
           </Text>
         </Pressable>}
-    
-      
-
       
     </SafeAreaView>
   );

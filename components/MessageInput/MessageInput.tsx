@@ -187,6 +187,7 @@ const MessageInput = ({ chatRoom, messageReplyTo, removeMessageReplyTo }) => {
       return;
     }
     const blob = await getBlob(image);
+    console.log(blob);
     const { key } = await Storage.put(`${uuid()}.png`, blob, {
       progressCallback,
     });
@@ -280,6 +281,7 @@ const MessageInput = ({ chatRoom, messageReplyTo, removeMessageReplyTo }) => {
 
     resetFields();
   };
+  
 
   return (
     <KeyboardAvoidingView

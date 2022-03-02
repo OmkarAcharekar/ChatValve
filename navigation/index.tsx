@@ -8,8 +8,8 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer, DefaultTheme, DarkTheme,useNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as React from 'react';
-import { ColorSchemeName, Image, Pressable ,Text,View,useWindowDimensions} from 'react-native';
-import { Feather } from "@expo/vector-icons";
+import { ColorSchemeName, Image, Pressable ,Text,View,useWindowDimensions,StyleSheet} from 'react-native';
+import { AntDesign,Feather,MaterialIcons } from "@expo/vector-icons";
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import ModalScreen from '../screens/ModalScreen';
@@ -59,9 +59,15 @@ function RootNavigator() {
     </Stack.Navigator>
   );
 }
-const HomeHeader = (props) => {
+const HomeHeader = () => {
   const{width} = useWindowDimensions();
   const navigation = useNavigation();
+  const str = 'ChatValve';
+const highlight = 'Valve';
+
+let startIndex = str.indexOf(highlight);
+let endIndex = str.indexOf(highlight) + highlight.length;
+
 
  
   return (
@@ -70,37 +76,37 @@ const HomeHeader = (props) => {
       justifyContent: "space-between",
       width,
       padding: 10,
+      marginBottom:7,
       alignItems: "center",
     }}>
 
 <Image
         source={{
-          uri: "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/vadim.jpg",
+          uri: "https://raw.githubusercontent.com/OmkarAcharekar/ChatValve/master/assets/images/bubble-chat.png",
         }}
-        style={{ width: 30, height: 30, borderRadius: 30 }}
+        style={{ width: 35, height: 35, borderRadius: 30 }}
       />
-   <Text
-        style={{
-          flex: 1,
-          textAlign: "center",
-          marginLeft: 40,
-          fontSize:20,
-          fontWeight: "bold",
-        }}
-      >
-        Signal
+   {}
+      <View style={styles.container}>
+    <Text style={styles.paragraph}>
+      {str.substring(0, startIndex)}
+      <Text style={styles.highlight}>
+        {str.substring(startIndex, endIndex)}
       </Text>
+      {str.substring(endIndex, str.length)}
+    </Text>
+  </View>
       <Pressable onPress={() => navigation.navigate("Settings")}>
         <Feather
           name="settings"
           size={24}
           color="black"
-          style={{ marginHorizontal: 10 }}
+          style={{ marginLeft: 80 }}
         />
       </Pressable>
       <Pressable onPress={() => navigation.navigate("UsersScreen")}>
-        <Feather
-          name="edit-2"
+        <MaterialIcons
+          name="chat"
           size={24}
           color="black"
           style={{ marginHorizontal: 10 }}
@@ -112,4 +118,26 @@ const HomeHeader = (props) => {
   
 };
 
+const styles = StyleSheet.create({
+  container: {
+  
+   
+  },
+  paragraph: {
+   
+    fontSize: 25,
+    fontWeight: "bold",
+  
+    color: "#ffd633",
+
+    flex: 1,
+    textAlign: "center",
+    marginLeft: 100,
+  
+  
+  },
+  highlight: {
+    color: "#0099ff",
+  },
+});
 

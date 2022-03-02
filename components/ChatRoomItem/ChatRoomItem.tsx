@@ -14,7 +14,7 @@ export default function ChatRoomItem({ chatRoom }) {
   const [isLoading, setIsLoading] = useState(true);
 
   const navigation = useNavigation();
-
+  
   useEffect(() => {
     const fetchUsers = async () => {
       const fetchedUsers = (await DataStore.query(ChatRoomUser))

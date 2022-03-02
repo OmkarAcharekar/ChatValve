@@ -2,10 +2,5 @@
   "AppSyncApiName": "SignalClone",
   "DynamoDBBillingMode": "PAY_PER_REQUEST",
   "DynamoDBEnableServerSideEncryption": false,
-  "AuthCognitoUserPoolId": {
-    "Fn::GetAtt": [
-      "authSignalClone",
-      "Outputs.UserPoolId"
-    ]
-  }
+  "AuthModeLastUpdated": "2022-02-07T10:17:03.972Z"
 }

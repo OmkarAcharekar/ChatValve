@@ -35,7 +35,7 @@ export default function TabOneScreen() {
     </View>
   );
 }
-
+  
 const styles = StyleSheet.create({
   page: {
     backgroundColor: "white",

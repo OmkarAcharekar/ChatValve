@@ -6,14 +6,16 @@ import { withAuthenticator } from "aws-amplify-react-native";
 import config from "./src/aws-exports";
 import { Message, User } from "./src/models";
 import { ActionSheetProvider } from "@expo/react-native-action-sheet";
-
 import useCachedResources from "./hooks/useCachedResources";
 import useColorScheme from "./hooks/useColorScheme";
 import Navigation from "./navigation";
-import moment from "moment";
+
 
 import { box } from "tweetnacl";
 import { generateKeyPair, encrypt, decrypt } from "./utils/crypto";
+import { LogBox } from 'react-native';
+LogBox.ignoreLogs(['Warning: ...']); // Ignore log notification by message
+LogBox.ignoreAllLogs();//Ignore all log notifications
 
 Amplify.configure(config);
 
@@ -30,7 +32,8 @@ console.log(obj, encrypted, decrypted);
 
 function App() {
   const isLoadingComplete = useCachedResources();
-  const colorScheme = useColorScheme();
+ 
+  
 
   const [user, setUser] = useState<User | null>(null);
 
@@ -105,6 +108,8 @@ function App() {
     return null;
   } else {
     return (
+     
+     
       <SafeAreaProvider>
         <ActionSheetProvider>
           <Navigation colorScheme={"light"} />

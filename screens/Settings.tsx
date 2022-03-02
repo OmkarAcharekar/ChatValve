@@ -4,6 +4,7 @@ import { View, Text, Pressable, Alert } from "react-native";
 import { generateKeyPair } from "../utils/crypto";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { User as UserModel } from "../src/models";
+import Colors from "../constants/Colors";
 
 export const PRIVATE_KEY = "PRIVATE_KEY";
 
@@ -44,11 +45,12 @@ const Settings = () => {
 
   return (
     <View>
-      <Text>Setting</Text>
+     
 
       <Pressable
         onPress={updateKeyPair}
         style={{
+          marginTop:20,
           backgroundColor: "white",
           height: 50,
           margin: 10,
@@ -56,7 +58,7 @@ const Settings = () => {
           justifyContent: "center",
         }}
       >
-        <Text>Update keypair</Text>
+        <Text>UPDATE KEYPAIR</Text>
       </Pressable>
 
       <Pressable
@@ -69,7 +71,7 @@ const Settings = () => {
           justifyContent: "center",
         }}
       >
-        <Text>Logout</Text>
+        <Text>LOGOUT</Text>
       </Pressable>
     </View>
   );

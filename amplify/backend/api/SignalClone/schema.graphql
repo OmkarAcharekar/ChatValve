@@ -45,4 +45,4 @@ type ChatRoomUser @model(queries: null) @key(name: "byChatRoom", fields: ["chatr
   chatroom: ChatRoom! @connection(fields: ["chatroomID"])
   user: User! @connection(fields: ["userID"])
 }
- 
+   

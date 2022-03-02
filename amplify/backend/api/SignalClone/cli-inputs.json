@@ -10,10 +10,6 @@
     "additionalAuthTypes": [
       {
         "mode": "AWS_IAM"
-      },
-      {
-        "mode": "AMAZON_COGNITO_USER_POOLS",
-        "cognitoUserPoolId": "authSignalClone"
       }
     ],
     "conflictResolution": {
@@ -22,6 +18,6 @@
       }
     },
     "apiName": "SignalClone",
-    "gqlSchemaPath": "/tmp/amplify-6f11e481-df69-4f9d-9b71-5db4b3777132/amplify/backend/api/SignalClone/schema.graphql"
+    "gqlSchemaPath": "/tmp/amplify-eda8fbba-c199-420b-9db3-f91feb098a99/amplify/backend/api/SignalClone/schema.graphql"
   }
 }

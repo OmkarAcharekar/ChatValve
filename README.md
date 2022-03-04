@@ -111,8 +111,8 @@ The latest installable version of ChatValve for Android and IOS coming soon.
 
 # You may also like...
 
-- [Netflix](https://github.com/amitmerchant1990/pomolectron) - A Netflix clone
-- [Air Sense](https://github.com/amitmerchant1990/correo) - Air Quality Predictor and Weather Application
+- [Netflix](https://github.com/OmkarAcharekar/Netflix_Clone) - A Netflix clone
+- [Air Sense](https://github.com/OmkarAcharekar/AirSense) - Air Quality Predictor and Weather Application
 
 
 

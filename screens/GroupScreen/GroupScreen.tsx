@@ -1,12 +1,12 @@
 import { useRoute } from "@react-navigation/native";
 import { DataStore, Auth } from "aws-amplify";
 import React, { useEffect, useState } from "react";
-import { View, Text, StyleSheet, Alert,FlatList } from "react-native";
+import { View, Text, StyleSheet, Alert, FlatList } from "react-native";
 
-import UserItem from "../../components/UserItem";
+import IndividualUser from "../../components/IndividualUser";
 import { ChatRoom, User, ChatRoomUser } from "../../src/models";
 
-const GroupInfoScreen = () => {
+const GroupScreen = () => {
   const [chatRoom, setChatRoom] = useState<ChatRoom | null>(null);
   const [allUsers, setAllUsers] = useState<User[]>([]);
   const route = useRoute();
@@ -90,7 +90,7 @@ const GroupInfoScreen = () => {
       <FlatList
         data={allUsers}
         renderItem={({ item }) => (
-          <UserItem
+          <IndividualUser
             user={item}
             isAdmin={chatRoom?.Admin?.id === item.id}
             onLongPress={() => confirmDelete(item)}
@@ -114,4 +114,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default GroupInfoScreen;
+export default GroupScreen;

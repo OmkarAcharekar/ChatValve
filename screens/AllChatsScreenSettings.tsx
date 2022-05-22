@@ -1,7 +1,7 @@
 import { Auth, DataStore } from "aws-amplify";
 import React from "react";
 import { View, Text, Pressable, Alert } from "react-native";
-import { generateKeyPair } from "../utils/crypto";
+import { generateKeyPair } from "../utils/cryptography";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { User as UserModel } from "../src/models";
 import Colors from "../constants/Colors";
@@ -45,12 +45,12 @@ const Settings = () => {
 
   return (
     <View>
-     
+
 
       <Pressable
         onPress={updateKeyPair}
         style={{
-          marginTop:20,
+          marginTop: 20,
           backgroundColor: "white",
           height: 50,
           margin: 10,

@@ -18,6 +18,6 @@
       }
     },
     "apiName": "SignalClone",
-    "gqlSchemaPath": "/tmp/amplify-eda8fbba-c199-420b-9db3-f91feb098a99/amplify/backend/api/SignalClone/schema.graphql"
+    "gqlSchemaPath": "/tmp/amplify-017d2c4f-6986-47b7-ae7a-8c3b9fb4b9b4/amplify/backend/api/SignalClone/schema.graphql"
   }
 }

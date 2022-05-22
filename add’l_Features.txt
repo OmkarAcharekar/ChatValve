@@ -1,4 +1,4 @@
- 	Backup to Google drive 
+    Backup to Google drive 
  	Cloud & Data Synchronization
  	Use different languages
  	Block unwanted people and spam

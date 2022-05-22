@@ -12,13 +12,13 @@ import { Auth, Storage } from "aws-amplify";
 import { S3Image } from "aws-amplify-react-native";
 import { useWindowDimensions } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import AudioPlayer from "../AudioPlayer";
+import Audio from "../Audio";
 import { Message as MessageModel } from "../../src/models";
 
 const blue = "#3777f0";
 const grey = "lightgrey";
 
-const MessageReply = (props) => {
+const ReplyToMessage = (props) => {
   const { message: propMessage } = props;
 
   const [message, setMessage] = useState<MessageModel>(propMessage);
@@ -76,7 +76,7 @@ const MessageReply = (props) => {
             />
           </View>
         )}
-        {soundURI && <AudioPlayer soundURI={soundURI} />}
+        {soundURI && <Audio soundURI={soundURI} />}
         {!!message.content && (
           <Text style={{ color: isMe ? "black" : "white" }}>
             {message.content}
@@ -127,4 +127,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default MessageReply;
+export default ReplyToMessage;

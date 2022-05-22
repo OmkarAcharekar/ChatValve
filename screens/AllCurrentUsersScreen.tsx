@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import {StyleSheet,View,FlatList,Text,Pressable,SafeAreaView} from 'react-native';
-import UserItem from '../components/UserItem';
+import { StyleSheet, View, FlatList, Text, Pressable, SafeAreaView } from 'react-native';
+import IndividualUser from '../components/IndividualUser';
 // import Users from '../assets/dummy-data/Users';
 import { Auth, DataStore } from "aws-amplify";
 import NewGroupButton from '../components/NewGroupButton';
@@ -38,7 +38,7 @@ export default function UsersScreen() {
   };
 
 
-  const createChatRoom = async(users) => {
+  const createChatRoom = async (users) => {
 
     const authUser = await Auth.currentAuthenticatedUser();
     const dbUser = await DataStore.query(User, authUser.attributes.sub);
@@ -70,7 +70,7 @@ export default function UsersScreen() {
     navigation.navigate("ChatRoom", { id: newChatRoom.id });
   };
 
-  
+
 
   const saveGroup = async () => {
     await createChatRoom(selectedUsers);
@@ -88,30 +88,30 @@ export default function UsersScreen() {
   // }, []);
 
   return (
-    <SafeAreaView style = {styles.page}>
-     <FlatList data = {users}
-     renderItem ={({item}) => <UserItem user={item}
-     onPress={() => onUserPress(item)}
-     isSelected={isNewGroup ? isUserSelected(item) : undefined}/>}
-     showsVerticalScrollIndicator ={false}
-     ListHeaderComponent={() => (
-      <NewGroupButton onPress={() => setIsNewGroup(!isNewGroup)} />
-    )}
-     />
-        {isNewGroup && <Pressable style={styles.button} onPress={saveGroup}>
-          <Text style={styles.buttonText}>
-            Save group ({selectedUsers.length})
-          </Text>
-        </Pressable>}
-      
+    <SafeAreaView style={styles.page}>
+      <FlatList data={users}
+        renderItem={({ item }) => <IndividualUser user={item}
+          onPress={() => onUserPress(item)}
+          isSelected={isNewGroup ? isUserSelected(item) : undefined} />}
+        showsVerticalScrollIndicator={false}
+        ListHeaderComponent={() => (
+          <NewGroupButton onPress={() => setIsNewGroup(!isNewGroup)} />
+        )}
+      />
+      {isNewGroup && <Pressable style={styles.button} onPress={saveGroup}>
+        <Text style={styles.buttonText}>
+          Save group ({selectedUsers.length})
+        </Text>
+      </Pressable>}
+
     </SafeAreaView>
   );
 }
 const styles = StyleSheet.create({
 
-  page:{
-    flexDirection:"column",
-    padding:10,
+  page: {
+    flexDirection: "column",
+    padding: 10,
   },
   button: {
     backgroundColor: "#3777f0",
@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
     color: "white",
     fontWeight: "bold",
   },
-  
+
 });
 
 

@@ -10,11 +10,12 @@ import {
 import { useRoute, useNavigation } from "@react-navigation/native";
 import { DataStore } from "@aws-amplify/datastore";
 import { ChatRoom, Message as MessageModel } from "../src/models";
-import Message from "../components/Message";
-import MessageInput from "../components/MessageInput";
+import Message from "../components/IndividualMessage";
+import SendNewMessage from "../components/SendNewMessage";
 import { Auth, SortDirection } from "aws-amplify";
 
-export default function ChatRoomScreen() {
+export default function IndividualChatScreen() {
+
   const [messages, setMessages] = useState<MessageModel[]>([]);
   const [messageReplyTo, setMessageReplyTo] = useState<MessageModel | null>(
     null
@@ -48,11 +49,14 @@ export default function ChatRoomScreen() {
       console.warn("No chatroom id provided");
       return;
     }
+
     const chatRoom = await DataStore.query(ChatRoom, route.params.id);
     if (!chatRoom) {
       console.error("Couldn't find a chat room with this id");
     } else {
+
       setChatRoom(chatRoom);
+
     }
   };
 
@@ -70,7 +74,8 @@ export default function ChatRoomScreen() {
         sort: (message) => message.createdAt(SortDirection.DESCENDING),
       }
     );
-    // console.log(fetchedMessages);
+
+
     setMessages(fetchedMessages);
   };
 
@@ -90,7 +95,7 @@ export default function ChatRoomScreen() {
         )}
         inverted
       />
-      <MessageInput
+      <SendNewMessage
         chatRoom={chatRoom}
         messageReplyTo={messageReplyTo}
         removeMessageReplyTo={() => setMessageReplyTo(null)}

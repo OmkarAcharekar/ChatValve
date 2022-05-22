@@ -57,6 +57,10 @@ export const decrypt = (secretOrSharedKey, messageWithNonce, key) => {
 export const stringToUint8Array = (content) =>
   Uint8Array.from(content.split(",").map((str) => parseInt(str)));
 
+
+export const Uint8Arraytostring = (content) =>
+  Uint8Array.from(content.split(",").map((str) => parseInt(str)));
+
 export const getMySecretKey = async () => {
   const keyString = await AsyncStorage.getItem(PRIVATE_KEY);
   if (!keyString) {

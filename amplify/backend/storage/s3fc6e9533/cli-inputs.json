@@ -1,7 +1,7 @@
 {
   "resourceName": "s3fc6e9533",
   "policyUUID": "fc6e9533",
-  "bucketName": "signalclone9d48cbc9db7148beb9387b0552acd349",
+  "bucketName": "chatvalve9d48cbc9db7148beb9387b0552acd349",
   "storageAccess": "auth",
   "guestAccess": [],
   "authAccess": [

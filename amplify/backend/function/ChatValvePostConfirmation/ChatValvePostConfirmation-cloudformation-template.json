@@ -67,12 +67,12 @@
         "FunctionName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "SignalClonePostConfirmation",
+            "chatvalvePostConfirmation",
             {
               "Fn::Join": [
                 "",
                 [
-                  "SignalClonePostConfirmation",
+                  "chatvalvePostConfirmation",
                   "-",
                   {
                     "Ref": "env"
@@ -122,12 +122,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "SignalClonePostConfirmation",
+            "chatvalvePostConfirmation",
             {
               "Fn::Join": [
                 "",
                 [
-                  "SignalClonePostConfirmation",
+                  "chatvalvePostConfirmation",
                   "-",
                   {
                     "Ref": "env"

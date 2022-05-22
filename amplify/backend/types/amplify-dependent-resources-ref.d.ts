@@ -1,6 +1,6 @@
 export type AmplifyDependentResourcesAttributes = {
     "auth": {
-        "SignalClone": {
+        "ChatValve": {
             "IdentityPoolId": "string",
             "IdentityPoolName": "string",
             "UserPoolId": "string",
@@ -11,13 +11,13 @@ export type AmplifyDependentResourcesAttributes = {
         }
     },
     "api": {
-        "SignalClone": {
+        "ChatValve": {
             "GraphQLAPIIdOutput": "string",
             "GraphQLAPIEndpointOutput": "string"
         }
     },
     "function": {
-        "SignalClonePostConfirmation": {
+        "chatvalvePostConfirmation": {
             "Name": "string",
             "Arn": "string",
             "LambdaExecutionRole": "string",

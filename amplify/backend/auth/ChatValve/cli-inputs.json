@@ -4,7 +4,7 @@
     "identityPoolName": "testAuthIdentityPool",
     "allowUnauthenticatedIdentities": false,
     "resourceNameTruncated": "signale6d2f187",
-    "userPoolName": "SignalClone",
+    "userPoolName": "ChatValve",
     "autoVerifiedAttributes": [
       "email"
     ],
@@ -30,7 +30,7 @@
     "userpoolClientLambdaRole": "Signale6d2f187_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
     "sharedId": "e6d2f187",
-    "resourceName": "SignalClone",
+    "resourceName": "ChatValve",
     "authSelections": "identityPoolAndUserPool",
     "serviceName": "Cognito",
     "usernameAttributes": [
@@ -60,7 +60,7 @@
     "dependsOn": [
       {
         "category": "function",
-        "resourceName": "SignalClonePostConfirmation",
+        "resourceName": "chatvalvePostConfirmation",
         "triggerProvider": "Cognito",
         "attributes": [
           "Arn",
@@ -77,7 +77,7 @@
     "parentStack": {
       "Ref": "AWS::StackId"
     },
-    "authTriggerConnections": "[\n  {\n    \"triggerType\": \"PostConfirmation\",\n    \"lambdaFunctionName\": \"SignalClonePostConfirmation\"\n  }\n]",
+    "authTriggerConnections": "[\n  {\n    \"triggerType\": \"PostConfirmation\",\n    \"lambdaFunctionName\": \"chatvalvePostConfirmation\"\n  }\n]",
     "permissions": []
   }
 }

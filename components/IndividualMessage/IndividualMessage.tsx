@@ -14,23 +14,30 @@ import { S3Image } from "aws-amplify-react-native";
 import { useWindowDimensions } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useActionSheet } from "@expo/react-native-action-sheet";
-import AudioPlayer from "../AudioPlayer";
+import Audio from "../Audio";
 import { Message as MessageModel } from "../../src/models";
-import MessageReply from "../MessageReply";
+import ReplyToMessage from "../ReplyToMessage";
 import { box } from "tweetnacl";
 import {
   decrypt,
   getMySecretKey,
   stringToUint8Array,
-} from "../../utils/crypto";
+} from "../../utils/cryptography";
 
 const blue = "#3777f0";
 const grey = "lightgrey";
 
 const Message = (props) => {
+
+
   const { setAsMessageReply, message: propMessage } = props;
 
+
   const [message, setMessage] = useState<MessageModel>(propMessage);
+
+
+
+
   const [decryptedContent, setDecryptedContent] = useState("");
   const [repliedTo, setRepliedTo] = useState<MessageModel | undefined>(
     undefined
@@ -45,6 +52,7 @@ const Message = (props) => {
 
   useEffect(() => {
     DataStore.query(User, message.userID).then(setUser);
+
   }, []);
 
   useEffect(() => {
@@ -91,6 +99,7 @@ const Message = (props) => {
         return;
       }
       const authUser = await Auth.currentAuthenticatedUser();
+      console.log(user.id === authUser.attributes.sub);
       setIsMe(user.id === authUser.attributes.sub);
     };
     checkIfMe();
@@ -187,7 +196,7 @@ const Message = (props) => {
         { width: soundURI ? "75%" : "auto" },
       ]}
     >
-      {repliedTo && <MessageReply message={repliedTo} />}
+      {repliedTo && <ReplyToMessage message={repliedTo} />}
       <View style={styles.row}>
         {message.image && (
           <View style={{ marginBottom: message.content ? 10 : 0 }}>
@@ -198,7 +207,7 @@ const Message = (props) => {
             />
           </View>
         )}
-        {soundURI && <AudioPlayer soundURI={soundURI} />}
+        {soundURI && <Audio soundURI={soundURI} />}
         {!!decryptedContent && (
           <Text style={{ color: isMe ? "black" : "white" }}>
             {isDeleted ? "message deleted" : decryptedContent}

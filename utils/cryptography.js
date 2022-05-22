@@ -75,3 +75,22 @@ export const getMySecretKey = async () => {
 
   return stringToUint8Array(keyString);
 };
+
+
+
+
+
+// EXAMPLE
+
+// const obj = "hello world";
+// const pairA = generateKeyPair();
+// const pairB = generateKeyPair();
+
+// const sharedA = box.before(pairB.publicKey, pairA.secretKey);
+// const encrypted = encrypt(sharedA, obj);
+// /dUSN7yupK1tsYRWWjtobn8incBqQuQvr84Wj88zpIX+ech5qx1rYm3mpAf7/G8MvtSpfH+vIBbNrU0QyCuE6LJHoZmBZGKYFnrlGZ9CKvPsG9LBd0yfbQ==
+
+// const sharedB = box.before(pairA.publicKey, pairB.secretKey);
+// const decrypted = decrypt(sharedB, encrypted);
+// console.log(obj, encrypted, decrypted);
+// hello world

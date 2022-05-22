@@ -7,21 +7,20 @@ import styles from "./styles";
 import Auth from "@aws-amplify/auth";
 import moment from "moment";
 
-export default function ChatRoomItem({ chatRoom }) {
-  // const [users, setUsers] = useState<User[]>([]); // all users in this chatroom
+export default function AllChatsIndividualChat({ chatRoom }) {
+
   const [user, setUser] = useState<User | null>(null); // the display user
   const [lastMessage, setLastMessage] = useState<Message | undefined>();
   const [isLoading, setIsLoading] = useState(true);
 
   const navigation = useNavigation();
-  
+
   useEffect(() => {
     const fetchUsers = async () => {
       const fetchedUsers = (await DataStore.query(ChatRoomUser))
         .filter((chatRoomUser) => chatRoomUser.chatroom.id === chatRoom.id)
         .map((chatRoomUser) => chatRoomUser.user);
 
-      // setUsers(fetchedUsers);
 
       const authUser = await Auth.currentAuthenticatedUser();
       setUser(

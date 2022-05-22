@@ -24,8 +24,8 @@ import EmojiSelector from "react-native-emoji-selector";
 import * as ImagePicker from "expo-image-picker";
 import uuid from 'uuid-random';
 import { Audio, AVPlaybackStatus } from "expo-av";
-import AudioPlayer from "../AudioPlayer";
-import MessageComponent from "../Message";
+import Audio from "../Audio";
+import MessageComponent from "../IndividualMessage";
 import { ChatRoomUser } from "../../src/models";
 import { useNavigation } from "@react-navigation/native";
 import { box } from "tweetnacl";
@@ -33,9 +33,9 @@ import {
   encrypt,
   getMySecretKey,
   stringToUint8Array,
-} from "../../utils/crypto";
+} from "../../utils/cryptography";
 
-const MessageInput = ({ chatRoom, messageReplyTo, removeMessageReplyTo }) => {
+const SendNewMessage = ({ chatRoom, messageReplyTo, removeMessageReplyTo }) => {
   const [message, setMessage] = useState("");
   const [isEmojiPickerOpen, setIsEmojiPickerOpen] = useState(false);
   const [image, setImage] = useState<string | null>(null);
@@ -99,7 +99,7 @@ const MessageInput = ({ chatRoom, messageReplyTo, removeMessageReplyTo }) => {
       })
     );
 
-    // updateLastMessage(newMessage);
+
   };
 
   const sendMessage = async () => {
@@ -215,6 +215,8 @@ const MessageInput = ({ chatRoom, messageReplyTo, removeMessageReplyTo }) => {
     return blob;
   };
 
+
+
   async function startRecording() {
     try {
       await Audio.setAudioModeAsync({
@@ -281,7 +283,7 @@ const MessageInput = ({ chatRoom, messageReplyTo, removeMessageReplyTo }) => {
 
     resetFields();
   };
-  
+
 
   return (
     <KeyboardAvoidingView
@@ -349,7 +351,7 @@ const MessageInput = ({ chatRoom, messageReplyTo, removeMessageReplyTo }) => {
         </View>
       )}
 
-      {soundURI && <AudioPlayer soundURI={soundURI} />}
+      {soundURI && <Audio soundURI={soundURI} />}
 
       <View style={styles.row}>
         <View style={styles.inputContainer}>
@@ -471,4 +473,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default MessageInput;
+export default SendNewMessage;

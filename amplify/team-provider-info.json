@@ -1,25 +1,25 @@
 {
   "staging": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-signalclone-staging-184539-authRole",
-      "UnauthRoleArn": "arn:aws:iam::565396815475:role/amplify-signalclone-staging-184539-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::565396815475:role/amplify-signalclone-staging-184539-authRole",
+      "AuthRoleName": "amplify-chatvalve-staging-184539-authRole",
+      "UnauthRoleArn": "arn:aws:iam::565396815475:role/amplify-chatvalve-staging-184539-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::565396815475:role/amplify-chatvalve-staging-184539-authRole",
       "Region": "ap-south-1",
-      "DeploymentBucketName": "amplify-signalclone-staging-184539-deployment",
-      "UnauthRoleName": "amplify-signalclone-staging-184539-unauthRole",
-      "StackName": "amplify-signalclone-staging-184539",
-      "StackId": "arn:aws:cloudformation:ap-south-1:565396815475:stack/amplify-signalclone-staging-184539/0e8aa430-4a32-11ec-93e6-026500d30870",
+      "DeploymentBucketName": "amplify-chatvalve-staging-184539-deployment",
+      "UnauthRoleName": "amplify-chatvalve-staging-184539-unauthRole",
+      "StackName": "amplify-chatvalve-staging-184539",
+      "StackId": "arn:aws:cloudformation:ap-south-1:565396815475:stack/amplify-chatvalve-staging-184539/0e8aa430-4a32-11ec-93e6-026500d30870",
       "AmplifyAppId": "d1u9q5ihfqla40",
-      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-signalclone-staging-184539-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-chatvalve-staging-184539-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
     },
     "categories": {
       "auth": {
-        "SignalClone": {}
+        "ChatValve": {}
       },
       "function": {
-        "SignalClonePostConfirmation": {
-          "deploymentBucketName": "amplify-signalclone-staging-184539-deployment",
-          "s3Key": "amplify-builds/SignalClonePostConfirmation-6a454134563452726a4b-build.zip"
+        "chatvalvePostConfirmation": {
+          "deploymentBucketName": "amplify-chatvalve-staging-184539-deployment",
+          "s3Key": "amplify-builds/ChatValvePostConfirmation-6a454134563452726a4b-build.zip"
         }
       }
     }

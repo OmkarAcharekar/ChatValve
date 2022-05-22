@@ -1,10 +1,9 @@
 {
   "expo": {
-    "name": "SignalClone",
-    "slug": "SignalClone",
+    "name": "ChatValve",
+    "slug": "ChatValve",
     "version": "1.0.0",
     "orientation": "portrait",
-    
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "splash": {
@@ -23,7 +22,6 @@
     },
     "android": {
       "adaptiveIcon": {
-        
         "backgroundColor": "#ffffff"
       }
     },

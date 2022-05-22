@@ -1,12 +1,12 @@
 {
   "auth": {
-    "SignalClone": {
+    "ChatValve": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
       "dependsOn": [
         {
           "category": "function",
-          "resourceName": "SignalClonePostConfirmation",
+          "resourceName": "ChatValvePostConfirmation",
           "triggerProvider": "Cognito",
           "attributes": [
             "Arn",
@@ -38,7 +38,7 @@
     }
   },
   "api": {
-    "SignalClone": {
+    "ChatValve": {
       "service": "AppSync",
       "providerPlugin": "awscloudformation",
       "output": {
@@ -60,7 +60,7 @@
     }
   },
   "function": {
-    "SignalClonePostConfirmation": {
+    "chatvalvePostConfirmation": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"

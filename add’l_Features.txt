@@ -1,29 +1,29 @@
-    Backup to Google drive 
- 	Cloud & Data Synchronization
- 	Use different languages
- 	Block unwanted people and spam
- 	Send your location with maps
- 	Day and Night mode
+    Backup to Google drive    =   
+ 	Cloud & Data Synchronization    
+ 	Use different languages         
+ 	Block unwanted people and spam  =   
+ 	Send your location with maps   =  Google Map API   
+ 	Day and Night mode                                  
  	Mute chats and groups
  	Use two or more WhatsApp numbers on one phone
- 	Control your privacy
- 	Share documents
- 	Read messages without blue ticks
+ 	Control your privacy  
+ 	Share documents                              
+ 	Read messages without blue ticks                   
  	Stop auto download of photos and videos to save data
- 	Add shortcuts to your homescreen for individual chats
- 	Use WhatsApp on your PC
- 	Send giant heart
+ 	Add shortcuts to your homescreen for individual chats 
+ 	Use Application on your PC  
+ 	Send giant heart                            
  	Block unwanted people and spam
  	Reply directly from notification bar
- 	Send a single message to multiple people at once
+ 	Send a single message to multiple people at once 
 
 
 
 
 
  	VR and AR technologies
- 	Send and receive money with  wallet
- 	Self-destructing messages
+ 	Send and receive money with  wallet   == Stripe,Paypal   
+ 	Self-destructing messages             == Self destructing messages  
  	Group decision making features
- 	On-schedule messages
- 	Email Integration
+ 	On-schedule messages  
+ 	Email Integration   

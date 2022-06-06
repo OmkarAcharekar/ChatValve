@@ -33,9 +33,13 @@ https://user-images.githubusercontent.com/78009952/152931790-2ffa635d-8815-4d1b-
 
 * Encryption and Security
   - Messages are encrypted on the sender system or device, and only the intended recipient can decrypt it.
+
+* Audio and Video Call
+  -  Provides the Functionality of Audio and Video Call. Implemented using third-party Audio/Video Calling SDKs
+
 * Registration page and contact integration
   - App require users to sign in with a phone number. It sends an SMS confirmation code for security reasons. After registering, users  can login in their Account.
-  
+
 * Offers both private and group chats. 
   -  A group chat option lets users create a group and chat with multiple people at the same time.
   
@@ -43,7 +47,21 @@ https://user-images.githubusercontent.com/78009952/152931790-2ffa635d-8815-4d1b-
   -  It keep users active within the app and inform them when new messages have arrived or someone comes online.
   
 * Messages
-  - Users can send various type of messages like Audio Message,Text Messages ,Images and can also see user online status.
+  - Users can send various type of messages like Audio Message,Text Messages ,Images, Emoji's, Gif etc and can also see user online status and  also have statuses (delivered/failed/seen/edited) and options of reply, delete, forward. 
+
+* Online Status
+  - User  can see online status and  also  statuses of messages (delivered/failed/seen/edited).
+
+* Payments
+  - Provides the ability to receive and send payments to your contacts from your wallet.
+
+* Self-destructing messages  
+  - User can set messages to self-destruct as soon as they’re read, or after a certain time period (between an hour and 30 days)
+
+* Backup to Google drive   
+  - User can see backups of chat messages in Google Drive.
+
+
 
 # Encryption and Description 📖
 

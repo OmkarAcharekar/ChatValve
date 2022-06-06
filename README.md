@@ -38,7 +38,7 @@ https://user-images.githubusercontent.com/78009952/152931790-2ffa635d-8815-4d1b-
   -  Provides the Functionality of Audio and Video Call. Implemented using third-party Audio/Video Calling SDKs
 
 * Registration page and contact integration
-  - App require users to sign in with a phone number. It sends an SMS confirmation code for security reasons. After registering, users  can login in their Account.
+  - App require users to sign in with a phone number. It sends an SMS confirmation code for security. After registering, users  can login in their Account.
 
 * Offers both private and group chats. 
   -  A group chat option lets users create a group and chat with multiple people at the same time.

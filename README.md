@@ -115,8 +115,8 @@ Want to add online browser version of this application.It enables user to use th
 
 
 
-**Really Interested to add on and implement this features .Would love to work with anyone having experience with  Augmented reality / Virual Reality experience or
-having experience of implementing those.
+**Really Interested to implement this amazing features .Would love to work with anyone having experience with Augmented reality / Virual Reality experience or
+having experience of implementing those.**
 
 
 # How to Contribute 🖋 

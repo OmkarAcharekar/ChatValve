@@ -100,7 +100,7 @@ $ npm start
 
 <img width="336" alt="Virtual" src="https://user-images.githubusercontent.com/78009952/172121364-82e1f78d-2469-49e5-a334-50b2527d9075.png">
 
-It's will be  cool new way to chat with friends by seeing their faces in 3D avatar
+It's will be  cool way to chat with friends by seeing their faces in 3D avatar
 
 
 
@@ -115,7 +115,7 @@ Want to add online browser version of this application.It enables user to use th
 
 
 
-**Really Interested to implement this amazing features .Would love to work with anyone having experience with Augmented reality / Virual Reality experience or
+**Really Interested to implement this amazing features .Would love to work with anyone having experience with Augmented reality / Virual Reality or
 having experience of implementing those.**
 
 

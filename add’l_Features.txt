@@ -1,8 +1,7 @@
-    Backup to Google drive    =   
- 	Cloud & Data Synchronization    
+  	Cloud & Data Synchronization    
  	Use different languages         
- 	Block unwanted people and spam  =   
- 	Send your location with maps   =  Google Map API   
+ 	Block unwanted people and spam    
+ 	Send your location with maps   
  	Day and Night mode                                  
  	Mute chats and groups
  	Use two or more WhatsApp numbers on one phone
@@ -16,14 +15,7 @@
  	Block unwanted people and spam
  	Reply directly from notification bar
  	Send a single message to multiple people at once 
-
-
-
-
-
  	VR and AR technologies
- 	Send and receive money with  wallet   == Stripe,Paypal   
- 	Self-destructing messages             == Self destructing messages  
  	Group decision making features
  	On-schedule messages  
  	Email Integration   

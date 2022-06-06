@@ -19,7 +19,7 @@
       "function": {
         "chatvalvePostConfirmation": {
           "deploymentBucketName": "amplify-chatvalve-staging-184539-deployment",
-          "s3Key": "amplify-builds/ChatValvePostConfirmation-6a454134563452726a4b-build.zip"
+          "s3Key": "amplify-builds/ChatValvePostConfirmation-6a454134563452726a5b-build.zip"
         }
       }
     }

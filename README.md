@@ -9,7 +9,7 @@
 
 <h4 align="center">An  Real Time  End-To-End  Encrypted Messaging  Application</h4>
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ![React_Native](https://img.shields.io/badge/react%20native-v0.66-orange)
 ![Aws Amplify](https://img.shields.io/badge/Aws%20Amplify-%5E4.3.8-yellow)
 [![Build Status](https://img.shields.io/badge/build-passing-green)](https://img.shields.io/badge/build-passing-green)

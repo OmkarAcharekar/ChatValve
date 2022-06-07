@@ -162,7 +162,7 @@ The latest installable version of ChatValve for Android and IOS coming soon.
 # License
 MIT
 ---
-> [omkaracharekar.com](https://flamboyant-ramanujan-9f5033.netlify.app/) &nbsp;&
+> [omkaracharekar.com](https://delicate-kashata-f1f66c.netlify.app/) &nbsp;&
 
 > GitHub [OmkarAcharekar](https://github.com/OmkarAcharekar) &nbsp;&middot;&nbsp;
 

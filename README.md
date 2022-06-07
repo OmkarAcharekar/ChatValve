@@ -11,7 +11,7 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ![React_Native](https://img.shields.io/badge/react%20native-v0.66-orange)
-![Aws Amplify](https://img.shields.io/badge/Aws%20Amplify-%5E4.3.8-yellow)
+![Aws Amplify](https://img.shields.io/badge/aws%20amplify-%5E4.3.8-yellow)
 [![Build Status](https://img.shields.io/badge/build-passing-green)](https://img.shields.io/badge/build-passing-green)
 ![Dependencies](https://img.shields.io/badge/dependencies-up%20to%20date-brightgreen)
 ![Contributions welcome](https://img.shields.io/badge/contributions-welcome-orange.svg)

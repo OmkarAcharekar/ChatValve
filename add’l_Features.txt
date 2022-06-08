@@ -10,8 +10,7 @@
  	Read messages without blue ticks                   
  	Stop auto download of photos and videos to save data
  	Add shortcuts to your homescreen for individual chats 
- 	Use Application on your PC  
- 	Send giant heart                            
+ 	Use Application on your PC                           
  	Block unwanted people and spam
  	Reply directly from notification bar
  	Send a single message to multiple people at once 

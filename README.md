@@ -138,11 +138,11 @@ glad to work with you.
 
 This software uses the following :
 
-- [React Native](http://electron.atom.io/)
-- [Expo](http://showdownjs.github.io/showdown/)
-- [Node.js](https://nodejs.org/)
-- [TypeScript](https://github.com/chjj/marked)
-- [Aws Amplify](http://codemirror.net/)
+- [React Native](https://reactnative.dev/)
+- [Expo](https://expo.dev/)
+- [Node.js](https://nodejs.org/en/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Aws Amplify](https://aws.amazon.com/amplify/)
 - Icons are taken from [here](https://icons.expo.fyi/)
 
 

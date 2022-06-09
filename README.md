@@ -111,7 +111,7 @@ It's will be  cool way to chat with friends by seeing their faces in 3D avatar.
 ![Web_chat_UI1](https://user-images.githubusercontent.com/78009952/172124263-5667bb66-3b38-4bd1-a7b4-0ea57a92351b.jpg)
 
 
-Want to add online browser version of this application.It enables user to use this app on his computer screen. 
+Want to add online browser version of this application. It enables user to use this app on his computer screen. 
 
 
 

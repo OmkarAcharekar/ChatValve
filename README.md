@@ -41,14 +41,17 @@ https://user-images.githubusercontent.com/78009952/152931790-2ffa635d-8815-4d1b-
 * Offers both private and group chats. 
   -  A group chat option lets users create a group and chat with multiple people at the same time.
   
-* Push notification
-  -  It keep users active within the app and inform them when new messages have arrived or someone comes online.
-  
 * Messages
   - Users can send various type of messages like Audio Message,Text Messages ,Images, Emoji's, Gif etc and can also see user online status and  also have statuses (delivered/failed/seen/edited) and options of reply, delete, forward. 
 
 * Online Status
   - User  can see online status and  also  statuses of messages (delivered/failed/seen/edited).
+
+* Push notification
+  -  It keep users active within the app and inform them when new messages have arrived or someone comes online.
+  
+* Audio and Video Call (Temporarily removed)
+  -  Provides the Functionality of Audio and Video Call. Implemented using third-party Audio/Video Calling SDKs
 
 
 # Encryption and Description 📖

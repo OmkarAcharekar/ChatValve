@@ -9,10 +9,19 @@ import { ActionSheetProvider } from "@expo/react-native-action-sheet";
 import useCachedResources from "./hooks/useCachedResources";
 import Navigation from "./navigation";
 import { LogBox } from 'react-native';
+import * as Notifications from 'expo-notifications';
 LogBox.ignoreLogs(['Warning: ...']); // Ignore log notification by message
 LogBox.ignoreAllLogs();//Ignore all log notifications
 
 Amplify.configure(config);
+
+Notifications.setNotificationHandler({
+  handleNotification: async () => ({
+    shouldShowAlert: true,
+    shouldPlaySound: false,
+    shouldSetBadge: false,
+  }),
+});
 
 
 function App() {

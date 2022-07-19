@@ -50,6 +50,9 @@ https://user-images.githubusercontent.com/78009952/152931790-2ffa635d-8815-4d1b-
 * Push notification
   -  It keep users active within the app and inform them when new messages have arrived or someone comes online.
   
+* Payments
+   - Provides the ability to receive and send payments to your contacts from your wallet.
+  
 * Audio and Video Call (Temporarily removed)
   -  Provides the Functionality of Audio and Video Call. Implemented using third-party Audio/Video Calling SDKs
 

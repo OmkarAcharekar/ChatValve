@@ -43,6 +43,21 @@ export default function IndividualChatScreen() {
 
     return () => subscription.unsubscribe();
   }, []);
+  
+  const onUserPress = async (user) => {
+    if (isNewGroup) {
+      if (isUserSelected(user)) {
+        // remove it from selected
+        setSelectedUsers(
+          selectedUsers.filter((selectedUser) => selectedUser.id !== user.id)
+        );
+      } else {
+        setSelectedUsers([...selectedUsers, user]);
+      }
+    } else {
+      await createChatRoom([user]);
+    }
+  };
 
   const fetchChatRoom = async () => {
     if (!route.params?.id) {
